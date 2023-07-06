@@ -28,3 +28,7 @@ This library is used to make the development process easier by automatically res
 - Clone the repository
 - Run `npm install` to install all the dependencies
 - Run `npm start` to run the program
+
+## Areas of improvement
+
+- The program can be made more efficient by using a better algorithm to remove mails from UNREAD section and add to AUTO REPLY lable.
