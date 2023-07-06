@@ -6,16 +6,13 @@ import { promises } from "fs";
 import { scheduleJob } from "node-schedule";
 
 const main = async () => {
-  // If modifying these scopes, delete token.json.
   const SCOPES = [
     "https://mail.google.com/",
     "https://www.googleapis.com/auth/gmail.modify",
     "https://www.googleapis.com/auth/gmail.compose",
     "https://www.googleapis.com/auth/gmail.send",
   ];
-  // The file token.json stores the user's access and refresh tokens, and is
-  // created automatically when the authorization flow completes for the first
-  // time.
+
   const TOKEN_PATH = path.join(process.cwd(), "token.json");
   const CREDENTIALS_PATH = path.join(process.cwd(), "credentials.json");
 
@@ -165,7 +162,7 @@ const main = async () => {
     console.log("Threads:");
     threads.forEach((thread) => {
       console.log(`- ${thread.id}`);
-      // sendEmailToUnReplied(auth, thread.id);
+      sendEmailToUnReplied(auth, thread.id);
     });
   }
 
@@ -173,7 +170,7 @@ const main = async () => {
     const random = Math.floor(Math.random() * 120) + 44;
     scheduleJob(`*/${random} * * * * *`, () => {
       console.log("Running getMessagesFromThreads");
-      // getMessagesFromThreads(auth);
+      getMessagesFromThreads(auth);
     });
   });
 };
